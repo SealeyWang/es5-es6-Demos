@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.2.3 4 栈队列方法</title>
+</head>
+<body>
+
+</body>
+<script>
+    //栈相关
+    var colors = new Array();
+    var count  =  colors.push('red','green') // count  = 2
+    count = colors.push('black')//3
+    var item = colors.pop();//从最后面删除一项 并返回  item == black
+    console.log(colors.length);//2  red  green
+
+    //队列 相关 先进先出
+    count = colors.push('yellow'); // 3 colors = 'red,green,yellow'
+    var  item2  = colors.shift();  // 从数组前面删除一项并返回  item2 = red  colors.length  = 2  colors = 'green,yellow'
+
+    count = colors.unshift('black'); //从数组钱面添加一项 count =3   colors  =  'black,green,yellow'
+
+
+
+
+
+</script>
+</html>

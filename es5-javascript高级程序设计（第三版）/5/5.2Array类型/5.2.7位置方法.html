@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.2.7位置方法</title>
+</head>
+<body>
+
+</body>
+<script>
+    var numbers = [1,2,3,4,5,4,3,2,1];
+    alert(numbers.indexOf(4))//3
+    alert(numbers.lastIndexOf(4))//5
+    alert(numbers.indexOf(4,4))// 5 param1 要查找的值 param2 从第几项开始
+    alert(numbers.lastIndexOf(4,4));//3
+    var person = {name:'wangshaoli'};
+    var people  = [{name:'wangshaoli'}];
+    var morePeople = [person];
+    alert(people.indexOf(person))//  - 1 未找到
+    alert(morePeople.indexOf(person))//0
+
+
+
+
+
+</script>
+</html>

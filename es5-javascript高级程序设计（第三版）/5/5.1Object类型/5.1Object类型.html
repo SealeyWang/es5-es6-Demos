@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //创建对象的方式
+    //1 构造函数创建
+    var person  = new Object();
+    person.name = 'wangshaoli';
+    person.age  = 29;
+
+    //2 对象字面量
+    //通过对象字面量定义对象时，实际上不会调用Object构造函数（FireFox2（含）及以前会）
+    var person2 = {
+        name: 'wangshaoli',
+        age :29,
+        'age2':28,
+        5 :true // 数值属性会自动转换为字符串
+
+    }
+    var person3 ={}; //与 new Object()相同
+    person3.name = 'wangshaoli';
+    person3.age=28
+
+    //对象字面量 也非常适用于向函数传递大量可选参数
+    function displayInfo(args) {
+        var output  ='';
+
+        if(typeof args.name  == 'string'){
+            output += args.name
+        }
+
+        if(typeof  args.age ==  'number'){
+            output+= args.age;
+        }
+        alert(output)
+    }
+
+    displayInfo({
+        name : 'wangshaoli',
+        age :28
+    })
+    displayInfo({
+        name:'wang shao'
+    })
+    //可以用[]方括号访问对象属性
+    var str = 'name';
+
+    //通过[]访问可以包含空格 或属性名中导致语法错误的字符
+    person3['first name']  ='wang';
+
+    alert(person3['name']+',[""]访问对象属性'+person[str] +',   person3[\'first name\'] = '+   person3['first name'] )
+
+
+
+
+
+
+
+
+</script>
+</html>

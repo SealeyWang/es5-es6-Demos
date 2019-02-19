@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.2.6操作方法</title>
+</head>
+<body>
+
+</body>
+<script>
+    //concat(） 基于当前数组中的所有项创建一个新数组。
+    var colors  = ['red','green','blue'];
+    var colors2 = colors.concat('yellow',['black','brown'])
+    alert(colors);//red,green,blue
+    alert(colors2);//red,green,blue,yellow,black,brown
+
+    //slice() 基于当前数组创建一个新数组
+    var colors3 = colors2.slice(1);// 从第一个开始到最后一个
+    var colors4 = colors2.slice(1,4);//从第1个 到 第4个
+    alert(colors3);//green,blue,yellow,black,brown
+    alert(colors4);//green,blue,yellow
+    //如果slice() 参数中有一个负数，则用数组长度加上该数组来确定相应的位置。 在 一个 包含5项的数组上调用 slice(-2,-1) 与slice(3,4)相同 如果结束位置小于其实位置 ，则返回空数组。
+
+
+    //splice () 主要用途是向数组中部插入项，但使用这种方法的方式则有如下3种。
+
+    //删除 可以删除任意数量的项，只需指定2个参数 ：要删除的第一项的位置和要删除的项数。splice(0,2) 会删除数组中前两项
+
+    //插入：可以想指定位置插入任意数量的项，只需提供3个参数：起始位置、0（要删除的项数）和要插入的项。如果要插入多个项，可以再传4 5 ... 多个项
+    //例如 splice(2 ,0 ,'red','green')
+
+
+
+
+
+</script>
+</html>
