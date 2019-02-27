@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.2.8迭代方法</title>
+</head>
+<body>
+
+</body>
+<script>
+//    es5 定义5个迭代方法。每个方法接收两个参数 param1 要在每一项上运行的桉树
+// param2(可选) 运行该函数的作用域对象——影响this的值。
+//param1函数会接收3个参数：数组项的值（item value）、该项在数组中的位置(index)、数组对象本身（array）
+
+    // every(); 对数组中的每一项运行 给定函数，如果每一项都返回true,则返回true.
+    //filter(); 对数组中的每一项 给定函数，返回该函数会返回true的项组成的数组。
+    //forEach(); 对数组中的每一项给定函数。这个方法没有返回值
+    //map(); 对数组中的每一项运行给定函数，返回每次函数调用的结果组成数组
+    //some();对数组中的每一项运行给定函数，如果该函数对任一项返回true 则返回true
+
+    var numbers =[1,2,3,4,5,4,3,2,1];
+    var everyResult =  numbers.every(function (item, index,array) {
+        return item>2;
+    });
+    alert(everyResult);//false
+    var someResult=numbers.some(function (item, index, array) {
+        return item >2;
+    });
+    alert(someResult);//true
+
+    var filterResult = numbers.filter(function (item, index, array) {
+        return item>2;
+    })
+    alert(filterResult);//3 4 5 4 3
+
+    let mapResult = numbers.map(function (value, index, array) {
+        return value*2;
+    })
+    alert(mapResult);//2,4,6,8,10,,8,6,4,2
+
+    numbers.forEach(function (value, index, array) {
+        //遍历numbers数组  本质上和for循环迭代数组一样
+    })
+
+
+
+
+
+</script>
+</html>
