@@ -25,14 +25,27 @@
     * 匹配字符串中所有"at"的实例
     */
     var pattern1 = /at/g;
+    var a1 = 'fdsfatfdsa';
+    console.log(pattern1.test(a1));//true
     /*
     * 匹配第一个"bat"或"cat"，不区分大小写
     */
     var pattern2 = /[bc]at/i;
+    var a2 = 'sdafrewbatsdf';
+    var a3 = 'sdafrewCatsdf';
+    console.log(pattern2.test(a2));//true
+    console.log(pattern2.test(a3));//true
+
+
     /*
     * 匹配所有以"at"结尾的 3 个字符的组合，不区分大小写
     */
     var pattern3 = /.at/gi;
+
+    var a4 = 'sadjfi.ato3.sdfs';
+    var pattern4 = /\.at/gi;
+
+    console.log(pattern3.test(a4));//true
 
 </script>
 
