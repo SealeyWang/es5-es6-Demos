@@ -8,6 +8,30 @@ A   ·DOCTYPE html>
 
 </body>
 
+<script>
+    // 因为 ECMAScript 中的函数名本身就是变量，所以函数也可以作为值来使用。也就是说，不仅可以
+    // 像传递参数一样把一个函数传递给另一个函数，而且可以将一个函数作为另一个函数的结果返回。
 
+
+    // 这里的 callSomeFunction()函数是通用的，即无论第一个参数中传递进来的是什么函数，它都
+    // 会返回执行第一个参数后的结果。
+    function callSomeFunction(someFunction, someArgument){
+        return someFunction(someArgument);
+    }
+
+
+    function add10(num){
+        return num + 10;
+    }
+    var result1 = callSomeFunction(add10, 10);
+    alert(result1); //20
+    function getGreeting(name){
+        return "Hello, " + name;
+    }
+    var result2 = callSomeFunction(getGreeting, "Nicholas");
+    alert(result2); //"Hello, Nicholas"
+
+
+</script>
 
 </html>
