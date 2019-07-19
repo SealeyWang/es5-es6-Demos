@@ -12,7 +12,7 @@
     //    在函数内部，有两个特殊的对象：arguments 和 this。
     //
     //    arguments :它是一个类数组对象，包含着传入函数中的所有参数。虽然 arguments 的主要用途是保存函数参数，
-    //但这个对象还有一个名叫 callee 的属性，该属性是一个指针，指向拥有这个 arguments 对象的函数。
+    //但这个对象还有一个名叫 callee （被用者的引用  ）的属性，该属性是一个指针，指向拥有这个 arguments 对象的函数。
 
 
     /**
@@ -44,8 +44,8 @@
     factorial = function () {
         return 0;
     };
-    alert(trueFactorial(5)); //120
-    alert(factorial(5)); //0
+    console.log(trueFactorial(5)); //120
+    console.log(factorial(5)); //0
 
 
     //
@@ -56,14 +56,14 @@
     var o = {color: "blue"};
 
     function sayColor() {
-        alert(this.color);
+        console.log(this.color);
     }
 
     sayColor(); //"red"
     o.sayColor = sayColor;
     o.sayColor(); //"blue"
 
-    //     ECMAScript 5 也规范化了另一个函数对象的属性：caller。
+    //     ECMAScript 5 也规范化了另一个函数对象的属性：caller。 调用者的引用
     //     这个属性中保存着调用当前函数的函数的引用，
     // 如果是在全局作用域中调用当前函数，它的值为 null。例如：
     function outer() {
@@ -71,8 +71,9 @@
     }
 
     function inner() {
-        alert(inner.caller);
+        console.log(inner.caller);
     }
+  //////////////////////////////////////////////////////////////////
 
     outer();
     // 以上代码会导致警告框中显示 outer()函数的源代码。
@@ -83,8 +84,11 @@
         inner();
     }
     function inner(){
-        alert(arguments.callee.caller);
+        console.log(arguments.callee.caller);
     }
     outer();
+    //  function outer() {
+    //     inner();
+    // }
 </script>
 </html>
