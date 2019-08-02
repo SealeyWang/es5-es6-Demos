@@ -10,18 +10,114 @@
 <script>
     // 每个函数都包含两个属性：length 和 prototype。
     // 其中，length 函数希望接收 参数的个数
-    function sayName(name){
-        alert(name);
+    function sayName(name) {//希望接收1个参数
+        console.log(name);
     }
-    function sum(num1, num2){
+
+    function sum(num1, num2) {//希望接收2个参数
         return num1 + num2;
     }
-    function sayHi(){
-        alert("hi");
-    }
-    alert(sayName.length); //1
-    alert(sum.length); //2
-    alert(sayHi.length); //0
 
+    function sayHi() {//希望接收0个参数
+        console.log("hi");
+    }
+
+    console.log(sayName.length); //1
+    console.log(sum.length); //2
+    console.log(sayHi.length); //0
+
+    //    prototype 是保存 ‘引用类型’所有实例方法的 属性
+    //     诸如toString()和 valueOf()等方法实际上都保存在 prototype 名下，
+    //     通过各自对象的实例访问。
+
+
+    // 每个函数都包含两个非继承而来的方法：apply()和 call()。
+    // 这两个方法的用途都是在特定的作用域中调用函数，
+    // 实际上等于设置函数体内 this 对象的值。
+
+    // apply()方法接收两个参数：
+    // 一个是在其中运行函数的作用域，
+    // 另一个是参数数组。 （可以是Array 的实例，也可以是arguments 对象。
+    function sum(num1, num2) {
+        return num1 + num2;
+    }
+
+    function callSum1(num1, num2) {
+        return sum.apply(this, arguments); // 传入 arguments 对象
+    }
+
+    function callSum2(num1, num2) {
+        return sum.apply(this, [num1, num2]); // 传入数组
+    }
+
+    console.log(callSum1(10, 10)); //20
+    console.log(callSum2(10, 10)); //20
+
+
+    // call()方法与 apply()方法的作用相同，它们的区别仅在于接收参数的方式不同。
+
+    // call()方法，第一个参数是 this 值没有变化，
+    // 变化的是其余参数都直接传递给函数。
+
+    function sum(num1, num2) {
+        return num1 + num2;
+    }
+
+    function callSum(num1, num2) {
+        return sum.call(this, num1, num2); //需要明确传入每一个参数
+    }
+
+    console.log(callSum(10, 10)); //20
+    // 至于是使用 apply()还是 call()，
+    // 完全取决于你采取哪种给函数传递参数的方式最方便。
+
+
+    // apply()和 call()真正强大的地方是能够扩充函数运行的作用域。
+    window.color = "red";
+    var o = {color: "blue"};
+
+    function sayColor() {
+        console.log(this.color);
+    }
+
+    sayColor(); //red
+    sayColor.call(this); //red   执行环境为window  this引用指向window  转换成对 window.color 的求值。
+    sayColor.call(window); //red 转换成对 window.color 的求值。
+    sayColor.call(o); //blue  执行环境为对象 o  this指向o
+
+    // 使用 call()（或 apply()）来扩充作用域的最大好处
+    // 对象不需要与方法有任何耦合关系。
+    // 前面例子的第一个版本中，我们是先将 sayColor()函数放到了对象 o 中，
+    // 然后再通过 o 来调用它的；
+    // 而在这里重写的例子中，就不需要先前那个多余的步骤了。
+
+    //  例子
+    // window.color = "red";
+    // var o = {color: "blue"};
+    //
+    // function sayColor() {
+    //     console.log(this.color);
+    // }
+    //
+    // sayColor(); //"red"
+    // o.sayColor = sayColor;  //sayColor()函数放到了对象 o
+    // o.sayColor(); //"blue"  //调用
+
+
+    // ECMAScript 5 还定义了一个方法：bind()。
+    // 这个方法会创建一个函数的实例，
+    // 其 this 值会被绑定到传给 bind()函数的值。
+    window.color = "red";
+    var o = {color: "blue"};
+
+    function sayColor() {
+        console.log(this.color);
+    }
+    //sayColor通过创建一个函数实例objectSayColor
+    //将objectSayColor 的this 绑定 o
+    var objectSayColor = sayColor.bind(o);
+    // 在window作用于下调用  执行环境是 o  this指向是o
+    objectSayColor(); //blue
 </script>
+
 </html>
