@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.6.3 String类型</title>
+</head>
+<body>
+
+<script>
+    // String 类型是字符串的对象包装类型，可以像下面这样使用 String 构造函数来创建。
+    var stringObject = new String("hello world");
+    // String 对象的方法也可以在所有基本的字符串值中访问到。
+    // 其中，继承的 valueOf()、toLocaleString()和 toString()方法，
+    // 都返回对象所表示的基本字符串值。
+    var stringValue = "hello world";
+    console.log(stringValue.length); //"11"
+
+
+    // 1. 字符方法 charAt() charCodeAt()
+    var stringValue = "hello world";
+    console.log(stringValue.charAt(1)); //"e"
+    var stringValue = "hello world";
+    console.log(stringValue.charCodeAt(1)); //输出"101"   是小写字母"e"的字符编码。
+
+
+    // 2. 字符串操作方法  concat()  推荐使用 +
+    var stringValue = "hello ";
+    var result = stringValue.concat("world");
+    console.log(result); //"hello world"
+    console.log(stringValue); //"hello"
+
+    var stringValue = "hello ";
+    var result = stringValue.concat("world", "!");//接受任意多个参数
+    console.log(result); //"hello world!"   返回新值  不改变原值
+    console.log(stringValue); //"hello" 保持  stringValue 值不变
+
+
+    // 还有3个个基于子字符串创建新字符串的方法：
+    // slice()、substr()和 substring()。
+    var stringValue = "hello world";
+    console.log(stringValue.slice(3)); //"lo world"
+    console.log(stringValue.substring(3)); //"lo world"
+    console.log(stringValue.substr(3)); //"lo world"
+    console.log(stringValue.slice(3, 7)); //"lo w"
+    console.log(stringValue.substring(3, 7)); //"lo w"
+    console.log(stringValue.substr(3, 7)); //"lo worl"
+
+
+    // 在传递给这些方法的参数是负值的情况下，它们的行为就相同了
+    // slice()方法会将传入的负值与字符串的长度相加，
+    // substr()方法将负的第一个参数加上字符串的长度，而将负的第二个参数转换为 0。
+    // substring()方法会把所有负值参数都转换为 0。
+    var stringValue = "hello world";
+    alert(stringValue.slice(-3)); //"rld"   将传入的负值与字符串的长度相加 -3 + 11 =  8 slice(8)
+    alert(stringValue.substring(-3)); //"hello world"  -3 -> 0 substring
+    alert(stringValue.substr(-3)); //"rld"
+    alert(stringValue.slice(3, -4)); //"lo w"
+    alert(stringValue.substring(3, -4)); //"hel"
+    alert(stringValue.substr(3, -4)); //""（空字符串）
+
+
+</script>
+
+
+</body>
+</html>
