@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Commonjs</title>
+</head>
+<body>
+
+<script>
+
+
+
+    // 以下是假代码  用于理解 Commonjs
+    /* 模块自带的部分 */
+    var exports = {}
+    var module = {
+        exports: exports
+    }
+
+    /* 我们对模块的操作 */
+
+    /* 实例1 -> 正确 */
+    module.exports = {
+        name: 'doublege'
+    }
+
+    /* 实例2 -> 正确 */
+    exports.name = 'doublege'
+
+    /* 实例3 -> 错误*/
+    //exports 引用指向了新的对象  {name:'doblege'}
+
+    exports = {
+        name: 'doublege'
+    };
+    /* 操作完毕 */
+
+    /* 模块自带的部分 */
+    // return module.exports
+
+
+</script>
+</body>
+</html>
