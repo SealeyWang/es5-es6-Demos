@@ -11,14 +11,14 @@
     //concat(） 基于当前数组中的所有项创建一个新数组。
     var colors  = ['red','green','blue'];
     var colors2 = colors.concat('yellow',['black','brown']);
-    alert(colors);//red,green,blue
-    alert(colors2);//red,green,blue,yellow,black,brown
+    console.log(colors);//red,green,blue
+    console.log(colors2);//red,green,blue,yellow,black,brown
 
     //slice() 基于当前数组创建一个新数组
     var colors3 = colors2.slice(1);// 从第一个开始到最后一个
     var colors4 = colors2.slice(1,4);//从第1个 到 第4个
-    alert(colors3);//green,blue,yellow,black,brown
-    alert(colors4);//green,blue,yellow
+    console.log(colors3);//green,blue,yellow,black,brown
+    console.log(colors4);//green,blue,yellow
     //如果slice() 参数中有一个负数，则用数组长度加上该数组来确定相应的位置。 在 一个 包含5项的数组上调用 slice(-2,-1) 与slice(3,4)相同 如果结束位置小于其实位置 ，则返回空数组。
 
 
@@ -38,15 +38,15 @@
 
     var colors = ['red','green','blue'];
     var removed = colors.splice(0,1); //删除第一项
-    alert(colors);//green blue
-    alert(removed)//red
+    console.log(colors);//green blue
+    console.log(removed)//red
 
     removed = colors.splice(1,0,'yellow','orange'); //
-    alert(colors);//green yellow orange  blue
-    alert(removed)//[] 空数组
+    console.log(colors);//green yellow orange  blue
+    console.log(removed)//[] 空数组
     removed = colors.splice(1,1,'red','purple')
-    alert(colors);//green red purple orange blue
-    alert(removed);//yellow ,返回的数组中只包含一项
+    console.log(colors);//green red purple orange blue
+    console.log(removed);//yellow ,返回的数组中只包含一项
 
 
 

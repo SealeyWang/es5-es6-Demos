@@ -24,20 +24,20 @@
     var values=[1,2,] ;//别这样  会创建 2 or 3 项的数组  ie实现与其他浏览器不一致
     var options = [, , , , ,];//别这样  会创建 5 or 6 项的数组 ie实现与其他浏览器不一致
 
-    alert(colors5[0]);
+    console.log(colors5[0]);
     colors5[3] = 'brown' //新增第4项  原来数组只有3项，此操作会只 colors5 长度+1
     var names2 =[]; //names2.length = 0
 
     //数组 Array.length 属性不是只读的，设置这个属性可以从末尾 ‘移除’or ‘添加’ 项(item)
     colors5.length = 2; //移除  length 1 2 以后的项
-    alert(colors5[2])//undefind
+    console.log(colors5[2])//undefind
     colors5.length = 4 ; // colors = [red ,blue ,undefind,undefind  ]
-    alert(colors5)
+    console.log(colors5)
 
     //利用length属性方便的在数据末尾添加新项
     colors5[colors5.length]='bloack';
     colors5[colors5.length]='brown';
-    alert(colors5)
+    console.log(colors5)
 
 
 

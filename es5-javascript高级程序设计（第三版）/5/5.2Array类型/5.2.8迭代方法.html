@@ -22,21 +22,21 @@
     var everyResult =  numbers.every(function (item, index,array) {
         return item>2;
     });
-    alert(everyResult);//false
+    console.log(everyResult);//false
     var someResult=numbers.some(function (item, index, array) {
         return item >2;
     });
-    alert(someResult);//true
+    console.log(someResult);//true
 
     var filterResult = numbers.filter(function (item, index, array) {
         return item>2;
     })
-    alert(filterResult);//3 4 5 4 3
+    console.log(filterResult);//3 4 5 4 3
 
     let mapResult = numbers.map(function (value, index, array) {
         return value*2;
     })
-    alert(mapResult);//2,4,6,8,10,,8,6,4,2
+    console.log(mapResult);//2,4,6,8,10,,8,6,4,2
 
     numbers.forEach(function (value, index, array) {
         //遍历numbers数组  本质上和for循环迭代数组一样
