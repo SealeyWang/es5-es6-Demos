@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防抖和节流</title>
+</head>
+<body>
+
+<input type="text"/>
+<input id="submit" type="button" value="button">
+<!--<button></button>-->
+
+</body>
+<script>
+
+    // 防抖或是节流； 限制函数的执行次数 （是函数编程中的一个应用）
+    // 防抖： 通过setTimeout 的方式，在一定的时间间隔内，
+    // 将多次触发变成一次触发；
+
+    // 节流：减少一段时间的触发频率
+
+    let submit = document.getElementById('submit')
+    // submit.addEventListener('click',debounce(submitHandle,2000),false)
+    submit.addEventListener('click', f1(submitHandle, 2000), false)
+
+    // submit.addEventListener('click',submitHandle,false)
+
+    function submitHandle(e) {
+        console.log(1)
+    }
+
+
+    // 第一次点击触发 将多次触发合并成一次触发
+    function debounce(fn, timer) {
+        let timeoutId = NaN
+        return function () {
+
+            if (timeoutId) {
+                clearTimeout(timeoutId)
+            }
+            let isFirst = !timeoutId
+            if (isFirst) {
+                fn.apply(this, arguments)
+            }
+            timeoutId = setTimeout(() => {
+                timeoutId = NaN
+
+            }, timer)
+
+
+        }
+
+    }
+
+
+    // fn()
+    // 在没用 apply 执行的时候 e 为什么是undefind
+    // 调用它的不是btn 是settimeout / 匿名函数
+
+
+    function throttle(fn, delay) {
+        var begin = 0;
+        return function () {
+            let cur = new Date().getTime()
+            if (cur - begin   > delay) {
+                fn.apply(this, arguments)
+                begin = cur
+            }
+
+
+        }
+    }
+
+
+    // 显示delay 时间内只执行一次  自己分析 实现
+    function f1(fn, delay) {
+        let canRuntime = 0
+        return function () {
+            // // 当前点击时间
+            let currentTime = new Date().getTime()
+            // current  > canRuntime 即可执行
+            if(currentTime > canRuntime) {
+                canRuntime = currentTime +delay
+                fn.apply(this,arguments)
+            }
+
+        }
+    }
+
+    //current 当前时间 first 第一次执行时间
+    // current  > first + delay 可以再次运行  -> f1 运算逻辑
+    // 不等式移项
+    // current - first > delay  可以再次运行  -> throttle 运算逻辑
+
+
+</script>
+</html>

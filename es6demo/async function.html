@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/async_function">
+        async function mdn link
+    </a>
+
+
+    <p> async function 关键字用来在表达式中定义异步函数。</p>
+    async函数是AsyncFunction构造函数的实例， 并且其中允许使用await关键字。
+    async和await关键字让我们可以用一种更简洁的方式写出基于Promise的异步行为，而无需刻意地链式调用promise。
+</head>
+<body>
+
+
+<script>
+    function resolveAfter2Seconds(x) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(x);
+            }, 2000);
+        });
+    };
+
+    // async function expression assigned to a variable
+    var add1 = async function (x) {
+        var a = await resolveAfter2Seconds(20); //  等待异步函数执行完成 再执行下一行
+        console.log('a=' + a)
+        var b = await resolveAfter2Seconds(30); //  等待异步函数执行完成 再执行下一行
+        console.log('b=' + b)
+        return x + a + b;
+    }
+    add1(10).then(v => {
+        console.log(v);  // 4 秒后打印 60
+    });
+
+
+    (async function (x) { // async function expression used as an IIFE
+        var p_a = resolveAfter2Seconds(20);
+        var p_b = resolveAfter2Seconds(30);
+        return x + await p_a + await p_b;
+    })(10).then(v => {
+        console.log(v);  // 2 秒后打印 60
+    });
+
+</script>
+
+</body>
+</html>

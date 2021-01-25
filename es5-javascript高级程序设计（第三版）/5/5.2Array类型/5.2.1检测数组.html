@@ -11,13 +11,18 @@
     var value =[];
     if (value instanceof Array){
         //是数组
+        console.log('value是数组')
     }
 
-    if(value.isArray()){
+
+    if(value.isArray(value)){
+        console.log('value.isArray === true')
         //IE9+ Firefox4+ Safari5+ Opera 10.5+ Chrome
     }
 
+    console.log(value.isArray)
 
-    
+
+
 </script>
 </html>

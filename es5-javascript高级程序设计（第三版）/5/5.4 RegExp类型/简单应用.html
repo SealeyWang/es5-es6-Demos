@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    // IOS webkit 不兼容  new Date('yyyy-mm-dd')   带 '-'日期 创建时间 会报错
+    const d = '2020-12-15'
+    const date = new Date(d) // 此代码在ios 浏览器上不兼容
+    const str = replaceDateForIos(d)
+    console.log('str='+str)// 2020/12/15
+    const date2 = new Date(str) // 此25代码在ios 手机上兼容
+
+    /**
+     *
+     * @param dateStr String  'yyyy-mm-dd'
+     * @return {String} 'yyyy/mm/dd'
+     */
+    function replaceDateForIos(dateStr){
+        const regExp = /-/g
+        return  dateStr.replace(regExp,'/')
+    }
+
+
+
+    let a = '36px'
+    const regExp = /px/g
+    console.log(a.replace(regExp,''))
+
+</script>
+</body>
+</html>

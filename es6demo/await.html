@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await"> await</a>
+<p>await操作符用于等待一个Promise 对象。它只能在异步函数 async function 中使用。</p>
+
+
+await 表达式会暂停当前 async function 的执行，等待 Promise 处理完成。
+若 Promise 正常处理(fulfilled)，其回调的resolve函数参数作为 await 表达式的值，继续执行 async function。
+若 Promise 处理异常(rejected)，await 表达式会把 Promise 的异常原因抛出。
+另外，如果 await 操作符后的表达式的值不是一个 Promise，则返回该值本身。
+
+<script>
+
+
+    function resolveAfter2Seconds(x) {
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(x);
+            }, 2000);
+        });
+    }
+
+    async function f1() {
+        //如果一个 Promise 被传递给一个 await 操作符，await 将等待 Promise 正常处理完成并返回其处理结果。
+        var x = await resolveAfter2Seconds(10); // resolve 的参数作为 await 的值  继续执行 async function
+        console.log(x); // 10
+    }
+
+    f1();
+
+
+    async function f2() {
+        var y = await 20; // 如果该值不是一个 Promise，await 会把该值转换为已正常处理的Promise，然后等待其处理结果。  (返回该值本身)
+        console.log('await不是promise ' + y); // 20
+    }
+
+    f2();
+
+
+    async function f3() {
+        try {
+            var z = await Promise.reject(30);  // 如果 Promise 处理异常，则异常值被抛出。
+            console.log('z=' + z) // 上一行 报异常 此行不执行
+        } catch (e) {
+            // 捕获到异常  e 为 reject 的参数
+            console.log('捕获到异常 ' + e); // 30
+        }
+    }
+
+    f3();
+</script>
+</body>
+
+</html>
