@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="https://google.com" target="_blank">google</a>
+<!--当前页面打开-->
+<a href="https://google.com" target="_self">google</a>
+
+<br />
+
+<iframe style="width: 400px; height: 400px"  src="a-target-iframe.html" frameborder="0"></iframe>
+
+<hr />
+
+<p>window name </p>
+<!--target="xxx"  如果没有窗口就 创建一个窗口 把它叫做xxx  如果有xxx窗口 就在当前xxx窗口打开链接-->
+<a href="//google.com" target="xxx">window name google</a>
+<a href="//baidu.com" target="xxx">window name baidu</a>
+
+<p>iframe name </p>
+
+<a href="//google.com" target="yyy">window name google</a>
+<!--在 名叫 yyy 的iframe中打开 链接-->
+<a href="//baidu.com" target="yyy">window name baidu</a>
+<iframe style="width: 100%; height: 400px" frameborder="0" name="yyy"></iframe>
+</body>
+</html>
