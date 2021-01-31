@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .rainbow {
+        /*border: 1px solid red;*/
+        width: 400px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .rainbow div {
+        margin: 10px;
+        border-radius: 50%;
+    }
+
+    .rainbow > div {
+        border: 1px solid hsl(0, 80%, 50%);
+        background: hsl(0, 80%, 50%);
+        height: 380px;
+    }
+
+    .rainbow > div > div {
+        border: 1px solid hsl(60, 80%, 50%);
+        background: hsl(60, 80%, 50%);
+        height: 360px;
+    }
+
+    .rainbow > div > div > div {
+        border: 1px solid hsl(120, 80%, 50%);
+        background: hsl(120, 80%, 50%);
+        height: 340px;
+    }
+
+
+    .rainbow > div > div > div > div {
+        border: 1px solid hsl(180, 80%, 50%);
+        background: hsl(180, 80%, 50%);
+        height: 320px;
+    }
+
+    .rainbow > div > div > div > div > div {
+        border: 1px solid hsl(240, 80%, 50%);
+        background: hsl(240, 80%, 50%);
+        height: 300px;
+    }
+
+    .rainbow > div > div > div > div > div > div {
+        border: 1px solid hsl(300, 80%, 50%);
+        background: hsl(300, 80%, 50%);
+        height: 280px;
+    }
+
+    .rainbow > div > div > div > div > div > div > div {
+        border: 1px solid hsl(320, 80%, 50%);
+        background: hsl(320, 80%, 50%);
+        height: 260px;
+    }
+    .rainbow > div > div > div > div > div > div > div > div  {
+        border: 1px solid white;
+        background: white;
+        height: 240px;
+    }
+
+
+</style>
+<body>
+
+<div class="rainbow">
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
