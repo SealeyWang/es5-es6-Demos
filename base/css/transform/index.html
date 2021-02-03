@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .bg {
+        border: 1px solid red;
+        width: 200px;
+        height: 200px;
+        background: red;
+        margin-bottom: 100px;
+        transition: all 2s;
+    }
+
+    .translateX:hover {
+        transform: translateX(100px);
+    }
+
+    .translateY:hover {
+        transform: translateY(100px);
+    }
+
+    .translate:hover {
+        transform: translate(100px, 20%)
+    }
+
+
+    .container {
+        border: 1px solid green;
+        width: 300px;
+        height: 300px;
+        position: relative;
+    }
+
+    .container > .item {
+        border: 1px solid greenyellow;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+
+    .parent {
+        border: 1px solid red;
+        width: 500px;
+        height: 500px;
+        perspective: 1200px;
+        position: relative;
+
+    }
+
+    .parent > .child {
+        position: absolute;
+        left: 30%;
+
+        top: 30%;
+        border: 1px solid blue;
+        background: blue;
+        width: 50px;
+        height: 50px;
+        transition: all 2s;
+
+    }
+
+    .parent > .child:hover {
+        transform: translateZ(600px);
+
+    }
+
+    .parent .translate3d {
+        position: absolute;
+        left: 30%;
+
+        top: 60%;
+        border: 1px solid blue;
+        background: blue;
+        width: 50px;
+        height: 50px;
+        transition: all 2s;
+    }
+
+    .parent > .translate3d:hover {
+        transform: translate3d(100px, -100px, 600px);
+
+    }
+
+</style>
+<body>
+<div class="bg translateX">translateX(x)</div>
+<div class="bg translateY">translateY(y)</div>
+<div class="bg translate">translate(x,y)</div>
+
+<div class="container">
+    <div class="item">
+        transform居中
+    </div>
+</div>
+<p>
+
+    translateZ三维 属性 <br/>
+    translateZ(100px) 括号中的 值小离视点近（物体看起来感觉大） 值大离视点远（物体看起来小） <br/>
+    3维属性在二维平面 需要设置 视点 来体现三维世界中的 近大远小 通过 perspective 属性在父元素上设置视点
+    perspective:200px; 正中心 200px 为 视点
+    X 横<br/>
+    Y 纵<br/>
+    Z 是垂直视点 往四周发射 可以理解为 默认垂直屏幕的方向<br/>
+    根据视点（X Y Z 交点）<br/>
+</p>
+
+<div class="parent">
+    <div class="child">
+        translateZ(z)
+    </div>
+
+
+    <div class="translate3d">
+        translate3d(x,y,z)
+    </div>
+</div>
+
+</body>
+</html>
