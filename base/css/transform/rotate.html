@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-rotate=1.0, maximum-rotate=1.0, minimum-rotate=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rotate</title>
+</head>
+<style>
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .bg {
+        border: 1px solid red;
+        width: 200px;
+        height: 200px;
+        background: red;
+        margin-bottom: 100px;
+        transition: all 1s;
+    }
+
+    .rotateX:hover {
+        transform: rotateX(360deg);
+    }
+
+    .rotateY:hover {
+        transform: rotateY(360deg);
+    }
+
+    .rotate:hover {
+        transform: rotate(90deg)
+    }
+
+    .rotateZ:hover {
+        transform: rotate(90deg)
+    }
+
+
+
+</style>
+<body>
+<div class="content">
+
+    <p>rotate 默认以垂直屏幕的轴转动  rotateZ 也是垂直屏幕的轴</p>
+
+    <div class="bg rotateX">rotateX(360deg)</div>
+
+    <div class="bg rotateY">rotateY(360deg)</div>
+    <div class="bg rotate">rotate(90deg)</div>
+    <div class="bg rotateZ">rotateZ(90deg)</div>
+
+
+</div>
+
+
+</body>
+</html>

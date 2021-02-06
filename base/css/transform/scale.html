@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scale</title>
+</head>
+<style>
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .bg {
+        border: 1px solid red;
+        width: 200px;
+        height: 200px;
+        background: red;
+        margin-bottom: 100px;
+        transition: all 1s;
+    }
+
+    .scaleX:hover {
+        transform: scaleX(1.5);
+    }
+
+    .scaleY:hover {
+        transform: scaleY(1.5);
+    }
+
+    .scale:hover {
+        transform: scale(1.5, 1.5)
+    }
+
+
+
+
+
+
+
+</style>
+<body>
+<div class="content">
+    <p>scale(sx, sy)  用的较少 容易出现模糊</p>
+    <p>sx {number} 表示缩放向量的横坐标。</p>
+    <p>sy {number} 表示缩放向量的纵坐标。如果未设置，则他的默认值被设置为 sx。 从而使得元素在保持原有形状下均等缩放</p>
+
+    <div class="bg scaleX">scaleX(x)</div>
+
+    <div class="bg scaleY">scaleY(y)</div>
+    <div class="bg scale">scale(x,y)</div>
+
+
+
+</div>
+
+
+</body>
+</html>

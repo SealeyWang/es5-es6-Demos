@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-skew=1.0, maximum-skew=1.0, minimum-skew=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>skew</title>
+</head>
+<style>
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .bg {
+        border: 1px solid red;
+        width: 200px;
+        height: 200px;
+        background: red;
+        margin-bottom: 100px;
+        transition: all 1s;
+    }
+
+    .skewX:hover {
+        transform: skewX(30deg);
+    }
+
+    .skewY:hover {
+        transform: skewY(30deg);
+    }
+
+    .skew:hover {
+        transform: skew(30deg, 30deg)
+    }
+
+
+
+
+</style>
+<body>
+<div class="content">
+
+    <p>skew 默认以垂直屏幕的轴转动  skewZ 也是垂直屏幕的轴</p>
+
+    <div class="bg skewX">skewX(30deg)</div>
+
+    <div class="bg skewY">skewY(30deg)</div>
+    <div class="bg skew">skew(30deg, 30deg)</div>
+
+
+</div>
+
+
+</body>
+</html>
