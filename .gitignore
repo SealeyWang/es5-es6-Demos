@@ -2,6 +2,8 @@
 # Project Ignores                       #
 #---------------------------------------#
 
+yarn.lock
+
 # output
 /.temp
 /.tmp
