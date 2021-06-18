@@ -32,7 +32,7 @@
 
     // 第一次点击触发 将多次触发合并成一次触发
     function debounce(fn, timer) {
-        let timeoutId = NaN
+        let timeoutId = null
         return function () {
 
             if (timeoutId) {
@@ -43,7 +43,7 @@
                 fn.apply(this, arguments)
             }
             timeoutId = setTimeout(() => {
-                timeoutId = NaN
+                timeoutId = null
 
             }, timer)
 
